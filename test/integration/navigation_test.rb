@@ -14,6 +14,12 @@ class NavigationTest < ActiveSupport::IntegrationCase
   test 'renders layout file with .liquid extension' do
     visit '/home/hello'
     assert_match 'Dummy App', page.body
+    assert_match 'Hello', page.body
+  end
+
+  test 'renders with local assings' do
+    visit '/home/bye?name=Rodrigo'
+    assert_match 'Bye Rodrigo!', page.body
   end
 
 end
