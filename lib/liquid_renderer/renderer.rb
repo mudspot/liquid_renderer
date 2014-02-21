@@ -16,6 +16,7 @@ module LiquidRenderer
 
       assigns = @view.assigns
 
+
       if @view.content_for?(:layout)
         assigns["content_for_layout"] = @view.content_for(:layout)
       end
