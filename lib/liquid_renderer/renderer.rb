@@ -12,31 +12,48 @@ module LiquidRenderer
     end
 
     def render(template, local_assigns = {})
-      @view.controller.headers["Content-Type"] ||= 'text/html; charset=utf-8'
-
-      assigns = @view.assigns
-
-
-      if @view.content_for?(:layout)
-        assigns["content_for_layout"] = @view.content_for(:layout)
-      end
-      assigns.merge!(local_assigns.stringify_keys)
-
-      controller = @view.controller
-      filters = if controller.respond_to?(:liquid_filters, true)
-                  controller.send(:liquid_filters)
-                elsif controller.respond_to?(:master_helper_module)
-                  [controller.master_helper_module]
-                else
-                  [controller._helpers]
-                end
-
+      _set_default_content_type
+      assigns = _merge_assigns(local_assigns)
       liquid = Liquid::Template.parse(template)
-      liquid.render(assigns, :filters => filters, :registers => {:action_view => @view, :controller => @view.controller})
+      liquid.render(assigns, filters: _filters, registers: _registers)
     end
 
     def compilable?
       false
     end
+
+    private
+
+    def _set_default_content_type
+      _controller.headers["Content-Type"] ||= 'text/html; charset=utf-8'
+    end
+
+    def _merge_assigns(local_assigns)
+      assigns = @view.assigns
+      assigns["content_for_layout"] = @view.content_for(:layout) if @view.content_for?(:layout)
+      assigns.merge!(local_assigns.stringify_keys)
+    end
+
+    def _controller
+      @view.controller
+    end
+
+    def _filters
+      @controller
+      if _controller.respond_to?(:liquid_filters, true)
+        _controller.send(:liquid_filters)
+      elsif _controller.respond_to?(:master_helper_module)
+        [_controller.master_helper_module]
+      else
+        [_controller._helpers]
+      end
+    end
+
+    def _registers
+      {action_view: @view, controller: _controller}
+    end
   end
 end
+
+ActionView::Template.register_template_handler :liquid, LiquidRenderer::Renderer
+
