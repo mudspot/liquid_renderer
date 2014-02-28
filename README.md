@@ -1,6 +1,6 @@
 # liquid_renderer
 
-LiquidRenderer adds liquid renderer and option to include liquid filters .
+LiquidRenderer adds liquid renderer and option to include liquid filters like Rails helpers.
 
 To use it, add this line to your Gemfile:
 

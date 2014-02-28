@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.description = "Insert LiquidRenderer description."
   s.homepage    = 'http://rubygems.org/gems/liquid_renderer'
   s.license     = 'MIT'
-  s.files       = Dir["{app,lib,config}/**/*"] + ["MIT-LICENSE", "Rakefile", "Gemfile", "README.rdoc"]
+  s.files       = Dir["{app,lib,config}/**/*"] + ["MIT-LICENSE", "Rakefile", "Gemfile", "README.md"]
 
   s.required_ruby_version     = '>= 1.9.3p125'
 
