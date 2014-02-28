@@ -4,4 +4,6 @@ Dummy::Application.routes.draw do
   get 'home/bye'
   get 'home/filter'
   get 'home/extra'
+
+  get 'liquid/index'
 end

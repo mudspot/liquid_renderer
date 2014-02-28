@@ -39,7 +39,11 @@ module LiquidRenderer
     end
 
     def _filters
-      _controller._liquid_filters
+      if _controller.class.ancestors.include? Controller
+        _controller._liquid_filters
+      else
+        []
+      end
     end
 
     def _registers

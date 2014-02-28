@@ -32,4 +32,10 @@ class NavigationTest < ActiveSupport::IntegrationCase
     assert_match "Extra: TEXT", page.body
   end
 
+
+  test 'renders liquid without include LiquidRenderer::Controller module' do
+    visit '/liquid/index'
+    assert_match 'It works!', page.body
+  end
+
 end
