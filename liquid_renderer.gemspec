@@ -7,11 +7,11 @@ Gem::Specification.new do |s|
   s.name        = "liquid_renderer"
   s.version     = LiquidRenderer::VERSION
   s.date        = '2014-02-28'
-  s.summary     = "LiquidRenderer adds liquid renderer and option to include filters inside LiquidFilters namespace"
+  s.summary     = "LiquidRenderer adds liquid renderer and option to include liquid filters like Rails helpers."
   s.author      = 'Rodrigo Ra'
   s.email       = 'rodrigorcomp@gmail.com'
-  s.description = "Insert LiquidRenderer description."
-  s.homepage    = 'http://rubygems.org/gems/liquid_renderer'
+  s.description = "LiquidRenderer adds liquid renderer and option to include liquid filters like Rails helpers."
+  s.homepage    = 'https://github.com/imaboldcompany/liquid_renderer'
   s.license     = 'MIT'
   s.files       = Dir["{app,lib,config}/**/*"] + ["MIT-LICENSE", "Rakefile", "Gemfile", "README.md"]
 

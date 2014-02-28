@@ -21,14 +21,30 @@ Creates liquid_filters folder inside your app directory and adds filters using s
       include LiquidRenderer::Controller
     end
 
-    mudule LiquidFilters::HomeFilter
+
+Create filters inside `app/helpers/liquid_filters` directory
+
+    module LiquidFilters::HomeFilter
       # this filter will be used to render HomeController views
     end
 
 
-### Code Status
+## Code Status
 
 
-### License
+## Contributors
+
+Reference:
+
+- http://royvandermeij.com/blog/2011/09/21/create-a-liquid-handler-for-rails-3-dot-1/
+- http://pragprog.com/book/jvrails/crafting-rails-applications
+
+
+
+
+
+
+
+## License
 
 Ruby license or MIT license, take your pick.
