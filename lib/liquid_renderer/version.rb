@@ -1,4 +1,4 @@
 
 module LiquidRenderer
-  require 'liquid_renderer/version'
+  VERSION = '0.0.1.pre'
 end

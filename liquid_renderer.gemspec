@@ -1,9 +1,28 @@
-# Provide a simple gemspec so you can easily use your enginex
-# project in your rails apps through git.
+# -*- encoding: utf-8 -*-
+require File.expand_path("../lib/liquid_renderer/version", __FILE__)
+
+
 Gem::Specification.new do |s|
-  s.name = "liquid_renderer"
-  s.summary = "Insert LiquidRenderer summary."
+  s.platform    = Gem::Platform::RUBY
+  s.name        = "liquid_renderer"
+  s.version     = LiquidRenderer::VERSION
+  s.date        = '2014-02-28'
+  s.summary     = "LiquidRenderer adds liquid renderer and option to include filters inside LiquidFilters namespace"
+  s.author      = 'Rodrigo Ra'
+  s.email       = 'rodrigorcomp@gmail.com'
   s.description = "Insert LiquidRenderer description."
-  s.files = Dir["{app,lib,config}/**/*"] + ["MIT-LICENSE", "Rakefile", "Gemfile", "README.rdoc"]
-  s.version = "0.0.1"
+  s.homepage    = 'http://rubygems.org/gems/liquid_renderer'
+  s.license     = 'MIT'
+  s.files       = Dir["{app,lib,config}/**/*"] + ["MIT-LICENSE", "Rakefile", "Gemfile", "README.rdoc"]
+
+  s.required_ruby_version     = '>= 1.9.3p125'
+
+  s.add_dependency('liquid',                '2.6.1')
+  s.add_dependency('activesupport',         '3.2.17')
+  s.add_dependency('bundler',               '~> 1.0')
+
+
+  s.add_development_dependency('rails',     '3.2.17')
+  s.add_development_dependency('sqlite3')
+  s.add_development_dependency('capybara',  '>= 0.4.0')
 end
