@@ -1,0 +1,6 @@
+
+module LiquidFilters::ExtraLiquidFilter
+
+end
+
+

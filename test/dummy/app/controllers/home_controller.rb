@@ -1,4 +1,7 @@
 class HomeController < ApplicationController
+  include LiquidRenderer::Controller
+
+  liquid_filter :extra
 
   def index
     @name = params[:name]
@@ -10,5 +13,13 @@ class HomeController < ApplicationController
 
   def bye
     render layout: 'liquid', locals: { name: params[:name] }
+  end
+
+  def filter
+    @name = params[:name]
+  end
+
+  def extra
+    @text = params[:text]
   end
 end

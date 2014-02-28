@@ -39,14 +39,7 @@ module LiquidRenderer
     end
 
     def _filters
-      @controller
-      if _controller.respond_to?(:liquid_filters, true)
-        _controller.send(:liquid_filters)
-      elsif _controller.respond_to?(:master_helper_module)
-        [_controller.master_helper_module]
-      else
-        [_controller._helpers]
-      end
+      _controller._liquid_filters
     end
 
     def _registers

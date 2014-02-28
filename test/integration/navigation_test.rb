@@ -22,4 +22,14 @@ class NavigationTest < ActiveSupport::IntegrationCase
     assert_match 'Bye Rodrigo!', page.body
   end
 
+  test 'uses default Filter' do
+    visit '/home/filter?name=Rodrigo%20Ra'
+    assert_match 'RodrigoRa', page.body
+  end
+
+  test 'uses extra filter' do
+    visit '/home/extra?text=TEXT'
+    assert_match "Extra: TEXT", page.body
+  end
+
 end

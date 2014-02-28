@@ -7,3 +7,5 @@ module LiquidRenderer
   require 'liquid_renderer/controller'
 end
 
+module LiquidFilters
+end
