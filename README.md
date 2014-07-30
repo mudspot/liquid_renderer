@@ -47,4 +47,4 @@ Reference:
 
 ## License
 
-Ruby license or MIT license, take your pick.
+MIT license
