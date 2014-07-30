@@ -47,7 +47,13 @@ module LiquidRenderer
     end
 
     def _registers
-      {action_view: @view, controller: _controller}
+      extra_registers = {}
+      if _controller.class.respond_to? :liquid_registers
+        _controller.class.liquid_registers.each do |method|
+          extra_registers.merge! _controller.send(method)
+        end
+      end
+      {action_view: @view, controller: _controller}.merge extra_registers
     end
   end
 end

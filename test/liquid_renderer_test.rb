@@ -1,5 +1,4 @@
 require 'test_helper'
-require 'fixtures/dummy_controller'
 
 class LiquidRendererTest < ActiveSupport::TestCase
   test "Controller Module load" do
@@ -9,6 +8,8 @@ class LiquidRendererTest < ActiveSupport::TestCase
   test 'Methods added to ActionController::Base' do
     assert_respond_to DummyController, :liquid_filter
     assert_respond_to DummyController, :liquid_filters
+    assert_respond_to DummyController, :liquid_register
+    assert_respond_to DummyController, :liquid_registers
   end
 
   test 'add default filter to controller' do
@@ -42,4 +43,14 @@ class LiquidRendererTest < ActiveSupport::TestCase
     assert DummyController.liquid_filters.ancestors.include?(LiquidFilters::AnotherLiquidFilter),
            'DummyController should include LiquidFilters::AnotherLiquidFilter by constant'
   end
+
+
+  test 'registers for default controller are empty' do
+    assert_equal([], DummyController.liquid_registers)
+  end
+
+  test 'adds extra register method name to liquid_registers' do
+    assert_equal([:extra_register], WithExtraRegistersController.liquid_registers)
+  end
+
 end

@@ -38,4 +38,9 @@ class NavigationTest < ActiveSupport::IntegrationCase
     assert_match 'It works!', page.body
   end
 
+  test 'renders using extra register variables' do
+    visit '/with_extra_register/index'
+    assert_match 'hello world', page.body
+  end
+
 end

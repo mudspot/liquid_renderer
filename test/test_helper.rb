@@ -20,3 +20,9 @@ ActiveRecord::Migrator.migrate File.expand_path("../dummy/db/migrate/", __FILE__
 
 # Load support files
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
+
+#Load helpers
+Dir["#{File.dirname(__FILE__)}/liquid_filters/*.rb"].each { |f| require f }
+
+#Load fixtures
+Dir["#{File.dirname(__FILE__)}/fixtures/**/*.rb"].each { |f| require f }

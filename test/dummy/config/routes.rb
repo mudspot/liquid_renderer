@@ -6,4 +6,6 @@ Dummy::Application.routes.draw do
   get 'home/extra'
 
   get 'liquid/index'
+
+  get 'with_extra_register/index'
 end

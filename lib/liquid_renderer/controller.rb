@@ -5,7 +5,9 @@ module LiquidRenderer
 
     included do
       class_attribute :_liquid_filters
+      class_attribute :_liquid_registers
       self._liquid_filters = Module.new
+      self._liquid_registers = []
 
       default_liquid_module! unless anonymous?
     end
@@ -20,6 +22,14 @@ module LiquidRenderer
 
       def liquid_filters
         _liquid_filters
+      end
+
+      def liquid_register(extra_register_method)
+        _liquid_registers << extra_register_method
+      end
+
+      def liquid_registers
+        _liquid_registers
       end
 
       private
