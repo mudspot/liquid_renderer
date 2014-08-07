@@ -18,11 +18,11 @@ Gem::Specification.new do |s|
   s.required_ruby_version     = '>= 1.9.3p125'
 
   s.add_dependency('liquid',                '2.6.1')
-  s.add_dependency('activesupport',         '3.2.17')
+  s.add_dependency('activesupport',         '~> 3.2.19')
   s.add_dependency('bundler',               '~> 1.0')
 
 
-  s.add_development_dependency('rails',     '3.2.17')
+  s.add_development_dependency('rails',     '~> 3.2.17')
   s.add_development_dependency('sqlite3')
   s.add_development_dependency('capybara',  '>= 0.4.0')
 end

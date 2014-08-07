@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 
 gem "liquid"
-gem "rails", "3.2.17"
+gem "rails", "3.2.19"
 gem "capybara", ">= 0.4.0"
 gem "sqlite3"
 
